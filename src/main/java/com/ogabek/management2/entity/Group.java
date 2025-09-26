@@ -1,9 +1,7 @@
 package com.ogabek.management2.entity;
 
-
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
@@ -33,17 +31,21 @@ public class Group {
     @Column(nullable = false)
     private GroupStatus status = GroupStatus.ACTIVE;
 
-    // Many-to-one relationship with teachers
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "teacher_id")
-    private User teachers;
+    private Teacher teacher;
 
-    // Many-to-Many relationship with students
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "group_students",
             joinColumns = @JoinColumn(name = "group_id"),
             inverseJoinColumns = @JoinColumn(name = "student_id")
     )
-    private Set<User> students = new HashSet<>();
+    private Set<Student> students = new HashSet<>();
+
+    @OneToMany(mappedBy = "group", cascade = CascadeType.ALL)
+    private Set<Schedule> schedules = new HashSet<>();
+
+    @OneToMany(mappedBy = "group", cascade = CascadeType.ALL)
+    private Set<Lesson> lessons = new HashSet<>();
 }

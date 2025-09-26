@@ -1,4 +1,4 @@
-package com.ogabek.management2.dto;
+package com.ogabek.management2.dto.auth;
 
 
 import jakarta.validation.constraints.NotBlank;

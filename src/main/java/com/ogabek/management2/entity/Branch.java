@@ -1,8 +1,9 @@
 package com.ogabek.management2.entity;
 
-
 import jakarta.persistence.*;
 import lombok.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "branches")
@@ -27,4 +28,17 @@ public class Branch {
 
     @Column(nullable = false)
     private boolean active = true;
+
+    // One-to-Many relationships
+    @OneToMany(mappedBy = "branch", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Student> students = new HashSet<>();
+
+    @OneToMany(mappedBy = "branch", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Teacher> teachers = new HashSet<>();
+
+    @OneToMany(mappedBy = "branch", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Group> groups = new HashSet<>();
+
+    @OneToMany(mappedBy = "branch", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Expense> expenses = new HashSet<>();
 }

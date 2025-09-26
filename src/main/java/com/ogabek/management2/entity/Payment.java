@@ -2,7 +2,6 @@ package com.ogabek.management2.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
@@ -14,10 +13,9 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "student_id", nullable = false)
-    private User student;
+    private Student student;
 
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal amount;
@@ -25,6 +23,8 @@ public class Payment {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private PaymentType type;
+
+    private String description;
 
     @Column(nullable = false)
     private LocalDateTime createdAt = LocalDateTime.now();

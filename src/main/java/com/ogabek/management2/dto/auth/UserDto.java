@@ -1,4 +1,4 @@
-package com.ogabek.management2.dto;
+package com.ogabek.management2.dto.auth;
 
 
 import com.ogabek.management2.entity.Role;

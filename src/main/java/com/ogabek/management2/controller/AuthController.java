@@ -1,9 +1,9 @@
 package com.ogabek.management2.controller;
 
 
-import com.ogabek.management2.dto.AuthResponse;
-import com.ogabek.management2.dto.LoginRequest;
-import com.ogabek.management2.dto.RegisterRequest;
+import com.ogabek.management2.dto.auth.AuthResponse;
+import com.ogabek.management2.dto.auth.LoginRequest;
+import com.ogabek.management2.dto.auth.RegisterRequest;
 import com.ogabek.management2.service.AuthService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

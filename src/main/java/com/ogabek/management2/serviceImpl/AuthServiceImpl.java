@@ -1,8 +1,8 @@
 package com.ogabek.management2.serviceImpl;
 
-import com.ogabek.management2.dto.AuthResponse;
-import com.ogabek.management2.dto.LoginRequest;
-import com.ogabek.management2.dto.RegisterRequest;
+import com.ogabek.management2.dto.auth.AuthResponse;
+import com.ogabek.management2.dto.auth.LoginRequest;
+import com.ogabek.management2.dto.auth.RegisterRequest;
 import com.ogabek.management2.entity.RefreshToken;
 import com.ogabek.management2.entity.User;
 import com.ogabek.management2.exception.ApiException;
