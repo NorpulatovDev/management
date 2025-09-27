@@ -1,6 +1,5 @@
 package com.ogabek.management2.serviceImpl;
 
-import com.ogabek.management2.dto.*;
 import com.ogabek.management2.dto.branch.BranchDto;
 import com.ogabek.management2.dto.branch.CreateBranchRequest;
 import com.ogabek.management2.dto.branch.UpdateBranchRequest;

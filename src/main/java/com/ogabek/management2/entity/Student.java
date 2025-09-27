@@ -27,6 +27,7 @@ public class Student {
     private String parentPhoneNumber;
 
     @Column(precision = 12, scale = 2, nullable = false)
+    @Builder.Default
     private BigDecimal balance = BigDecimal.ZERO;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -38,11 +39,21 @@ public class Student {
     private User user;
 
     @ManyToMany(mappedBy = "students")
+    @Builder.Default
     private Set<Group> groups = new HashSet<>();
 
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
+    @Builder.Default
     private Set<Payment> payments = new HashSet<>();
 
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
+    @Builder.Default
     private Set<Attendance> attendances = new HashSet<>();
+
+    @PrePersist
+    protected void onCreate() {
+        if (balance == null) {
+            balance = BigDecimal.ZERO;
+        }
+    }
 }

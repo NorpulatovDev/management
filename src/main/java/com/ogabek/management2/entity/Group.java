@@ -29,6 +29,7 @@ public class Group {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
+    @Builder.Default
     private GroupStatus status = GroupStatus.ACTIVE;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -41,11 +42,21 @@ public class Group {
             joinColumns = @JoinColumn(name = "group_id"),
             inverseJoinColumns = @JoinColumn(name = "student_id")
     )
+    @Builder.Default
     private Set<Student> students = new HashSet<>();
 
     @OneToMany(mappedBy = "group", cascade = CascadeType.ALL)
+    @Builder.Default
     private Set<Schedule> schedules = new HashSet<>();
 
     @OneToMany(mappedBy = "group", cascade = CascadeType.ALL)
+    @Builder.Default
     private Set<Lesson> lessons = new HashSet<>();
+
+    @PrePersist
+    protected void onCreate() {
+        if (status == null) {
+            status = GroupStatus.ACTIVE;
+        }
+    }
 }

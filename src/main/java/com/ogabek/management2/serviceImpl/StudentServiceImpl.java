@@ -1,6 +1,5 @@
 package com.ogabek.management2.serviceImpl;
 
-import com.ogabek.management2.dto.*;
 import com.ogabek.management2.dto.payment.PaymentHistoryDto;
 import com.ogabek.management2.dto.student.AddBalanceRequest;
 import com.ogabek.management2.dto.student.CreateStudentRequest;

@@ -1,6 +1,5 @@
 package com.ogabek.management2.serviceImpl;
 
-import com.ogabek.management2.dto.*;
 import com.ogabek.management2.dto.salary.CreateSalaryRequest;
 import com.ogabek.management2.dto.salary.SalaryDto;
 import com.ogabek.management2.dto.salary.UpdateSalaryRequest;

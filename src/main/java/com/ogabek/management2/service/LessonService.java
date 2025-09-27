@@ -1,6 +1,5 @@
 package com.ogabek.management2.service;
 
-import com.ogabek.management2.dto.*;
 import com.ogabek.management2.dto.lesson.CreateLessonRequest;
 import com.ogabek.management2.dto.lesson.LessonDto;
 import com.ogabek.management2.dto.lesson.UpdateLessonRequest;

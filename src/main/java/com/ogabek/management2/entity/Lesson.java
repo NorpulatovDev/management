@@ -36,17 +36,31 @@ public class Lesson {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
+    @Builder.Default
     private LessonStatus status = LessonStatus.PLANNED;
 
     @OneToMany(mappedBy = "lesson", cascade = CascadeType.ALL)
+    @Builder.Default
     private Set<Attendance> attendances = new HashSet<>();
 
+    @Builder.Default
     private boolean charged = false;
 
     @Column(nullable = false)
+    @Builder.Default
     private LocalDateTime createdAt = LocalDateTime.now();
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "created_by")
     private Teacher createdBy;
+
+    @PrePersist
+    protected void onCreate() {
+        if (createdAt == null) {
+            createdAt = LocalDateTime.now();
+        }
+        if (status == null) {
+            status = LessonStatus.PLANNED;
+        }
+    }
 }

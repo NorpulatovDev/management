@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface StudentRepository extends JpaRepository<Student, Long> {
+    @Query("SELECT s FROM Student s WHERE s.user.username = :username")
     Optional<Student> findByUsername(String username);
 
     @Query("SELECT s FROM Student s WHERE s.branch.id = :branchId")
@@ -17,8 +18,6 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 
     @Query("SELECT s from Student s join s.groups g where g.id = :groupId")
     List<Student> findByGroupId(Long groupId);
-
-    // Add these methods to the existing StudentRepository
 
     @Query("SELECT s FROM Student s WHERE s.branch.id = :branchId AND s.balance < :minBalance")
     List<Student> findByBranchIdAndBalanceLessThan(@Param("branchId") Long branchId, @Param("minBalance") BigDecimal minBalance);

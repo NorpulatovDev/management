@@ -1,6 +1,5 @@
 package com.ogabek.management2.serviceImpl;
 
-import com.ogabek.management2.dto.*;
 import com.ogabek.management2.dto.teacher.CreateTeacherRequest;
 import com.ogabek.management2.dto.teacher.TeacherDto;
 import com.ogabek.management2.dto.teacher.UpdateTeacherRequest;

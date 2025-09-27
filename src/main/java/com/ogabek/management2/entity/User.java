@@ -1,6 +1,5 @@
 package com.ogabek.management2.entity;
 
-
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -27,5 +26,13 @@ public class User {
     private Role role;
 
     @Column(nullable = false)
+    @Builder.Default
     private boolean enabled = true;
+
+    @PrePersist
+    protected void onCreate() {
+        if (!enabled) {
+            enabled = true;
+        }
+    }
 }

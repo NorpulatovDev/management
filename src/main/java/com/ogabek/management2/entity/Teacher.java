@@ -25,6 +25,7 @@ public class Teacher {
     private String email;
 
     @Column(precision = 10, scale = 2)
+    @Builder.Default
     private BigDecimal salaryPercentage = BigDecimal.ZERO;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -36,11 +37,24 @@ public class Teacher {
     private User user;
 
     @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
+    @Builder.Default
     private Set<Group> groups = new HashSet<>();
 
     @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
+    @Builder.Default
     private Set<Salary> salaries = new HashSet<>();
 
     @Column(nullable = false)
+    @Builder.Default
     private LocalDateTime createdAt = LocalDateTime.now();
+
+    @PrePersist
+    protected void onCreate() {
+        if (createdAt == null) {
+            createdAt = LocalDateTime.now();
+        }
+        if (salaryPercentage == null) {
+            salaryPercentage = BigDecimal.ZERO;
+        }
+    }
 }

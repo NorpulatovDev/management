@@ -28,5 +28,13 @@ public class Schedule {
     private LocalTime endTime;
 
     @Column(nullable = false)
+    @Builder.Default
     private boolean active = true;
+
+    @PrePersist
+    protected void onCreate() {
+        if (!active) {
+            active = true;
+        }
+    }
 }

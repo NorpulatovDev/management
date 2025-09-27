@@ -95,4 +95,8 @@ public class AttendanceServiceImpl implements AttendanceService {
         }
 
         attendance.setStatus(request.getStatus());
-        attendanceRepository.save(attendance
+        attendanceRepository.save(attendance);
+
+        return AttendanceMapper.toDto(attendance);
+    }
+}

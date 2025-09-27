@@ -1,6 +1,5 @@
 package com.ogabek.management2.serviceImpl;
 
-import com.ogabek.management2.dto.*;
 import com.ogabek.management2.dto.group.AddStudentsToGroupRequest;
 import com.ogabek.management2.dto.group.CreateGroupRequest;
 import com.ogabek.management2.dto.group.GroupDto;

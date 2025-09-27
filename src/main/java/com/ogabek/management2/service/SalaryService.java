@@ -1,10 +1,8 @@
 package com.ogabek.management2.service;
 
-import com.ogabek.management2.dto.*;
 import com.ogabek.management2.dto.salary.CreateSalaryRequest;
 import com.ogabek.management2.dto.salary.SalaryDto;
 import com.ogabek.management2.dto.salary.UpdateSalaryRequest;
-import com.ogabek.management2.entity.SalaryStatus;
 import java.time.LocalDate;
 import java.util.List;
 

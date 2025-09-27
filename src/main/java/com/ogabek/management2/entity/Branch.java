@@ -27,18 +27,30 @@ public class Branch {
     private String phone;
 
     @Column(nullable = false)
+    @Builder.Default
     private boolean active = true;
 
     // One-to-Many relationships
     @OneToMany(mappedBy = "branch", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @Builder.Default
     private Set<Student> students = new HashSet<>();
 
     @OneToMany(mappedBy = "branch", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @Builder.Default
     private Set<Teacher> teachers = new HashSet<>();
 
     @OneToMany(mappedBy = "branch", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @Builder.Default
     private Set<Group> groups = new HashSet<>();
 
     @OneToMany(mappedBy = "branch", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @Builder.Default
     private Set<Expense> expenses = new HashSet<>();
+
+    @PrePersist
+    protected void onCreate() {
+        if (!active) {
+            active = true;
+        }
+    }
 }

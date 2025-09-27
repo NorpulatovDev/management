@@ -1,5 +1,6 @@
 package com.ogabek.management2.dto.group;
 
+import com.ogabek.management2.dto.schedule.CreateScheduleRequest;
 import com.ogabek.management2.entity.GroupStatus;
 import jakarta.validation.constraints.*;
 import lombok.*;

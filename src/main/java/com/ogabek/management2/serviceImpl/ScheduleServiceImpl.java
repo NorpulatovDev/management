@@ -1,6 +1,5 @@
 package com.ogabek.management2.serviceImpl;
 
-import com.ogabek.management2.dto.*;
 import com.ogabek.management2.dto.schedule.CreateScheduleRequest;
 import com.ogabek.management2.dto.schedule.ScheduleDto;
 import com.ogabek.management2.dto.schedule.UpdateScheduleRequest;

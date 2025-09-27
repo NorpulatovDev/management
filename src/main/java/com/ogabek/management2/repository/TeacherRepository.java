@@ -9,12 +9,11 @@ import java.util.List;
 import java.util.Optional;
 
 public interface TeacherRepository extends JpaRepository<Teacher, Long> {
+    @Query("SELECT t FROM Teacher t WHERE t.user.username = :username")
     Optional<Teacher> findByUsername(String username);
 
     @Query("select t from Teacher t where t.branch.id = :branchId")
     List<Teacher> findByBranchId(Long branchId);
-
-    // Add these methods to the existing TeacherRepository
 
     @Query("SELECT COUNT(t) FROM Teacher t WHERE t.branch.id = :branchId")
     Long countByBranchId(@Param("branchId") Long branchId);
